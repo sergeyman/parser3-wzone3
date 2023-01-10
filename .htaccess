@@ -1,0 +1,2 @@
+AddHandler parsed-html html
+Action parsed-html /cgi-bin/parser3.exe

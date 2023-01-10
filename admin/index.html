@@ -1,0 +1,38 @@
+@greeting[]
+Администрирование новостей
+
+@body_additional[]
+Добавление новостей
+
+@body_main[]
+$now[^date::now[]]
+
+<center>
+<form method="POST">
+	<p>
+		Date: <input name="date" value="${now.year}-${now.month}-${now.day}">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		Header: <input name="header">
+	</p>
+	<p>Body:<br />
+		<textarea cols="50" name="body" rows="5"></textarea>
+	</p>
+	<p>
+		<input type="submit" value="Add New" name="posted">&nbsp;&nbsp;&nbsp;
+		<input type="reset" value="Cancel">
+	</p>
+</form>
+#начало обработки
+^if(def $form:date && def $form:header && def $form:body){
+	^connect[$connect_string]{
+		^void:sql{insert into news
+			(date, header, body)
+		values
+			('$form:date', '$form:header', '$form:body')
+		}
+		…сообщение добавлено
+	}
+}{
+	…для добавления новости необходимо заполнить все поля формы
+}
+</center>
