@@ -1,0 +1,18 @@
+@USE
+/classes/gbook.p
+
+# Create user's class gbook instance and invoke its methods
+@body_main[]
+Гостевая книга текстового сайта<br />
+<hr />
+
+$gb[^gbook::load[]]
+^gb.show_messages[]
+^gb.show_form[]
+^gb.test_and_post_message[]
+
+@greeting[]
+Оставьте свой след
+
+@body_additional[]
+Нам пишут...

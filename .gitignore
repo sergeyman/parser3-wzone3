@@ -1,0 +1,6 @@
+*.gz
+/data
+/node_modules
+.htaccess
+node_modules
+/cgi-bin
